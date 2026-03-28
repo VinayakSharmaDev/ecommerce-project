@@ -1,0 +1,110 @@
+:root {
+    /* =========================
+     BRAND
+  ========================= */
+    --color-primary: #C75B12;
+    --color-primary-hover: #A94E10;
+    --color-primary-active: #8A3F0D;
+
+    /* =========================
+     BACKGROUND
+  ========================= */
+    --color-bg-main: #F5F2ED;
+    --color-bg-surface: #FFFFFF;
+    --color-bg-subtle: #FAF7F3;
+
+    /* =========================
+     TEXT
+  ========================= */
+    --color-text-main: #1A1A1A;
+    --color-text-secondary: #555555;
+    --color-text-muted: #888888;
+    --color-text-inverse: #FFFFFF;
+
+    /* =========================
+     BORDER
+  ========================= */
+    --color-border-light: #E5E2DD;
+    --color-border-default: #D6D3CE;
+    --color-border-strong: #BFBAB3;
+
+    /* =========================
+     STATES
+  ========================= */
+    --color-success: #2E7D32;
+    --color-warning: #ED6C02;
+    --color-error: #D32F2F;
+    --color-focus: #C75B12;
+
+    /* =========================
+     SHADOW
+  ========================= */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+    /* =========================
+     RADIUS
+  ========================= */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+
+    /* =========================
+     SPACING
+  ========================= */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+
+    /* =========================
+     TYPOGRAPHY
+  ========================= */
+    --font-family-base: "Roboto", Arial, sans-serif;
+
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* =========================
+     TRANSITIONS
+  ========================= */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+}
+
+
+/* 
+DARK THEME 
+           */
+
+
+[data-theme="dark"] {
+    --color-bg-main: #121212;
+    --color-bg-surface: #1A1A1A;
+    --color-bg-subtle: #222222;
+
+    --color-text-main: #F5F2ED; 
+    --color-text-secondary: #CFCBC6;
+    --color-text-muted: #9A948D;
+    --color-text-inverse: #FFFFFF;
+
+    --color-border-light: #2A2A2A;
+    --color-border-default: #333333;
+    --color-border-strong: #444444;
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.5);
+}

@@ -1,5 +1,8 @@
 import {Routes, Route, Navigate} from 'react-router';
 import { HomePage } from '/src/pages/HomePage';
+import { CheckoutPage } from '/src/pages/CheckoutPage';
+import { TrackingPage } from '/src/pages/TrackingPage';
+import { OrderPage } from '/src/pages/OrderPage';
 import './App.css'
 
 function App() {
@@ -8,7 +11,9 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Navigate to="/home"/>}> </Route>
                     <Route path="/home" element={<HomePage/>}></Route>
-                    <Route path="/checkout" element={<div>hello world</div>}></Route>
+                    <Route path="/checkout" element={<CheckoutPage/>}></Route>
+                    <Route path="/tracking" element={<TrackingPage/>}></Route>
+                    <Route path="/order" element={<OrderPage/>}></Route>
                 </Routes>
         </>
     );

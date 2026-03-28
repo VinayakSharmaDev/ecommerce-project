@@ -1,5 +1,5 @@
 .header {
-  background-color: #C75B12;
+  background-color: var(--color-primary);
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -13,6 +13,8 @@
   left: 0;
   right: 0;
   height: 60px;
+
+  overflow: hidden;
 }
 
 .header .left-section {
@@ -35,7 +37,7 @@
 }
 
 .header .header-link:hover {
-  border: 1px solid white;
+  border: 1px solid var(--color-border-light);
 }
 
 .header .logo {
@@ -74,20 +76,25 @@
   height: 38px;
   padding-left: 15px;
   border: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.header .search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary);
 }
 
 .header .search-button {
-  background-color:  #E5E2DD;
+  background-color: #E5E2DD;
   border: none;
   width: 45px;
   height: 40px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   flex-shrink: 0;
+  border-radius: var(--radius-md);
+  margin-left: var(--space-sm);
 }
 
 .header .search-icon {
@@ -105,7 +112,7 @@
 }
 
 .header .orders-link {
-  color: white;
+  color: var(--color-text-main);
 
   display: flex;
   align-items: center;
@@ -120,7 +127,7 @@
 }
 
 .header .cart-link {
-  color: white;
+  color: var(--color-text-main);
   display: flex;
   align-items: center;
   position: relative;
@@ -137,7 +144,7 @@
 }
 
 .header .cart-quantity {
-  color: #C75B12;
+  color: var(--color-text-main);
   font-size: 14px;
   font-weight: 700;
 

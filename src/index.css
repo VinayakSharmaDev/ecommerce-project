@@ -1,12 +1,10 @@
 body {
-  font-family: Roboto, Arial;
-  color: rgb(33, 33, 33);
-  /* The <body> element has a default margin of 8px
-     on all sides. This removes the default margins. */
+  font-family: var(--font-family-base);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
   margin: 0;
 }
 
-/* Remove the default margins of <p> elements. */
 p {
   margin: 0;
 }
@@ -20,45 +18,49 @@ select {
   cursor: pointer;
 }
 
-input, select, button {
+input,
+select,
+button {
   font-family: Roboto, Arial;
 }
 
 .button-primary {
-  color: rgb(255, 255, 255);
-  background-color: #C75B12;
+  color: var(--color-text-main);
+  background-color: var(--color-primary);
   border: 1px solid transparent;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(220, 220, 220, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.05);
 }
 
 .button-primary:hover {
-  background-color: rgba(25, 135, 84, 0.75);
+  background-color: var(--color-primary-hover);
   border: 1px solid transparent;
 }
 
 .button-primary:active {
-  background: rgba(25, 135, 84, 0.5);
+  background: var(--color-primary-active);
   border-color: transparent;
   box-shadow: none;
 }
 
 .button-secondary {
-  color: rgb(33, 33, 33);
-  background: white;
-  border: 1px solid rgb(200, 200, 200);
+  color: var(--color-text-inverse);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-light);
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(220, 220, 220, 0.2);
+  box-shadow: 0 2px 5px var(--shadow-xs);
 }
 
 .button-secondary:hover {
-  background-color: rgb(250, 250, 250);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-bg-surface);
 }
 
 .button-secondary:active {
-  background-color: rgb(240, 240, 240);
+  background: var(--color-bg-subtle);
   box-shadow: none;
 }
 
@@ -75,31 +77,36 @@ input, select, button {
 }
 
 .link-primary {
-  color: #C75B12;
+  color: var(--color-primary);
   cursor: pointer;
 }
 
 .link-primary:hover {
+  color: #000000;
+  text-decoration: underline;
   opacity: 0.75;
 }
 
 .link-primary:active {
+  color: #FFD2B0;
   opacity: 0.5;
 }
 
 /* Styles for dropdown selectors. */
 select {
-  color: rgb(33, 33, 33);
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(200, 200, 200);
   border-radius: 5px;
   padding: 3px 5px;
   font-size: 15px;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(200, 200, 200, 0.2);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
+  box-shadow: var(--shadow-xs);
 }
 
 select:focus,
 input:focus {
-  outline: 2px solid #C75B12;
+  outline: 2px solid var(--color-border-light);
 }

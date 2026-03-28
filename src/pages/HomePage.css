@@ -1,34 +1,20 @@
+@import '/src/tokens.css';
+
 .home-page {
   margin-top: 60px;
 }
 
 .home-page .products-grid {
   display: grid;
-
-  /* - In CSS Grid, 1fr means a column will take up the
-       remaining space in the grid.
-     - If we write 1fr 1fr ... 1fr; 8 times, this will
-       divide the grid into 8 columns, each taking up an
-       equal amount of the space.
-     - repeat(8, 1fr); is a shortcut for repeating "1fr"
-       8 times (instead of typing out "1fr" 8 times).
-       repeat(...) is a special property that works with
-       display: grid; */
   grid-template-columns: repeat(8, 1fr);
 }
 
-/* @media is used to create responsive design (making the
-   website look good on any screen size). This @media
-   means when the screen width is 2000px or less, we
-   will divide the grid into 7 columns instead of 8. */
 @media (max-width: 2000px) {
   .home-page .products-grid {
     grid-template-columns: repeat(7, 1fr);
   }
 }
 
-/* This @media means when the screen width is 1600px or
-   less, we will divide the grid into 6 columns. */
 @media (max-width: 1600px) {
   .home-page .products-grid {
     grid-template-columns: repeat(6, 1fr);
@@ -71,8 +57,8 @@
   padding-left: 25px;
   padding-right: 25px;
 
-  border-right: 1px solid rgb(240, 240, 240);
-  border-bottom: 1px solid rgb(240, 240, 240);
+  border-right: 1px solid var(--color-border-light);
+  /* border-bottom: 1px solid var(--color-primary); */
 
   display: flex;
   flex-direction: column;
@@ -112,7 +98,7 @@
 }
 
 .home-page .product-rating-count {
-  color: rgb(25, 135, 84);
+  color: var(--color-text-main);
   cursor: auto;
   margin-top: 3px;
 }
@@ -137,10 +123,6 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-
-  /* At first, the "Added to cart" message will
-     be invisible. Use JavaScript to change the
-     opacity and make it visible. */
   opacity: 0;
 }
 
