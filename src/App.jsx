@@ -1,6 +1,6 @@
 import {Routes, Route, Navigate} from 'react-router';
 import { HomePage } from '/src/pages/HomePage';
-import { CheckoutPage } from '/src/pages/CheckoutPage';
+import { CheckoutPage } from '/src/pages/checkout/CheckoutPage';
 import { TrackingPage } from '/src/pages/TrackingPage';
 import { OrderPage } from '/src/pages/OrderPage';
 import './App.css'
