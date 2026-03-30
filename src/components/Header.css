@@ -1,3 +1,5 @@
+@import '/src/tokens.css';
+
 .header {
   background-color: var(--color-primary);
   color: white;
@@ -118,6 +120,11 @@
   align-items: center;
   padding-left: 13px;
   padding-right: 13px;
+}
+
+.orders-link.active .orders-text {
+  text-decoration: underline;
+  color:var(--color-text-secondary);
 }
 
 .header .orders-text {
