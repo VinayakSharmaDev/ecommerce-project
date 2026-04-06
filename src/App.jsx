@@ -26,7 +26,7 @@ function App() {
                 <Route path="/home" element={<HomePage cart={cart} />}></Route>
                 <Route path="/checkout" element={<CheckoutPage cart={cart}/>}></Route>
                 <Route path="/tracking" element={<TrackingPage />}></Route>
-                <Route path="/order" element={<OrderPage />}></Route>
+                <Route path="/order" element={<OrderPage cart={cart} />}></Route>
 
                 <Route path="*" element={<NotFoundPage />}></Route>
             </Routes>
