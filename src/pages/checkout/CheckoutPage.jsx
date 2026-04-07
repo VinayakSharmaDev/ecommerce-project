@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { CheckoutHeader } from './CheckoutHeader.jsx';
-import { OrderSummery } from './OrderSummery';
-import { PaymentSummery } from './PaymentSummery'
+import { CheckoutHeader } from './components/CheckoutHeader.jsx';
+import { OrderSummery } from './components/OrderSummery';
+import { PaymentSummery } from './components/PaymentSummery'
 import './CheckoutPage.css';
 
 export function CheckoutPage({ cart }) {
@@ -11,15 +11,18 @@ export function CheckoutPage({ cart }) {
   const [paymentSummery, setPaymentSummery] = useState([]);
 
   useEffect(() => {
-    axios.get('api/delivery-options?expand=estimatedDeliveryTime')
-      .then((response) => {
-        setDeliveryOptions(response.data)
-      })
+    const fatchDeliveryOptionsData = async () => {
+      const response = await axios.get('api/delivery-options?expand=estimatedDeliveryTime');
+      setDeliveryOptions(response.data);
+    };
 
-    axios.get("/api/payment-summary")
-      .then((response) => {
-        setPaymentSummery(response.data);
-      })
+    const fatchPaymentSummery = async () => {
+      const response = await axios.get("/api/payment-summary");
+      setPaymentSummery(response.data);
+    };
+
+    fatchDeliveryOptionsData();
+    fatchPaymentSummery();
   }, []);
 
 

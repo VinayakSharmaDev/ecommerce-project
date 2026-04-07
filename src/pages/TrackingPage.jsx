@@ -6,6 +6,7 @@ export function TrackingPage() {
   return (
     <>
       <Header />
+      
       <link rel="icon" type="image/png" href="src/assets/tracking-fav.png" />
 
       <div className="tracking-page">
