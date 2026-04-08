@@ -11,18 +11,25 @@ export function CheckoutPage({ cart }) {
   const [paymentSummery, setPaymentSummery] = useState([]);
 
   useEffect(() => {
-    const fatchDeliveryOptionsData = async () => {
-      const response = await axios.get('api/delivery-options?expand=estimatedDeliveryTime');
-      setDeliveryOptions(response.data);
-    };
 
-    const fatchPaymentSummery = async () => {
-      const response = await axios.get("/api/payment-summary");
-      setPaymentSummery(response.data);
-    };
+    const fetchData = async () => {
+      try {
+        const [deliveryRes, paymentSummeryRes] = await Promise.all([
+          axios.get('api/delivery-options?expand=estimatedDeliveryTime'),
+          axios.get("/api/payment-summary")
+        ])
 
-    fatchDeliveryOptionsData();
-    fatchPaymentSummery();
+        setDeliveryOptions(deliveryRes.data)
+        setPaymentSummery(paymentSummeryRes.data)
+      }
+      catch (error) {
+        console.error("Error fetch data:", error)
+      }
+
+
+    }
+
+    fetchData();
   }, []);
 
 
@@ -31,7 +38,7 @@ export function CheckoutPage({ cart }) {
       <title>Checkout</title>
       <link rel="icon" type="image/png" href="src/assets/cart-fav.png" />
 
-      <CheckoutHeader />
+      <CheckoutHeader cart={cart} />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>

@@ -4,28 +4,43 @@ import './CheckoutHeader.css'
 import logo from '/src/assets/logo-nbg.png';
 import lock from '/src/assets/images/icons/checkout-lock-icon.png';
 
-export function CheckoutHeader() {
-    return(
-        <>
-            <div className="checkout-header">
-      <div className="header-content">
-        <div className="checkout-header-left-section">
-          <Link to="/">
-            <img className="logo" src={logo} />
-            <img className="mobile-logo" src={logo} />
-          </Link>
-        </div>
+export function CheckoutHeader({ cart }) {
+  let cartQuentity = 0;
 
-        <div className="checkout-header-middle-section">
-          Checkout (<Link className="return-to-home-link"
-            to="/">3 items</Link>)
-        </div>
+  cart.forEach(cartItem => {
+    cartQuentity += cartItem.quantity;
+  });
 
-        <div className="checkout-header-right-section">
-          <img src={lock} />
+  let quentityDisplay;
+  if (cartQuentity <= 1) {
+    quentityDisplay = `${cartQuentity} Item`
+  }
+  else {
+    quentityDisplay = `${cartQuentity} Items`
+  }
+
+
+  return (
+    <>
+      <div className="checkout-header">
+        <div className="header-content">
+          <div className="checkout-header-left-section">
+            <Link to="/">
+              <img className="logo" src={logo} />
+              <img className="mobile-logo" src={logo} />
+            </Link>
+          </div>
+
+          <div className="checkout-header-middle-section">
+            Checkout (<Link className="return-to-home-link"
+              to="/">{quentityDisplay}</Link>)
+          </div>
+
+          <div className="checkout-header-right-section">
+            <img src={lock} />
+          </div>
         </div>
       </div>
-    </div>
-        </>
-    );
+    </>
+  );
 }

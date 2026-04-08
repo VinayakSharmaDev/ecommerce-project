@@ -1,17 +1,9 @@
 import dayjs from 'dayjs';
-import { formatMoney } from '../../utils/money';
+import { formatMoney } from '../../../utils/money';
 
-import { OrderDetails } from './OrderDetails'
-
-export function OrderGrid({ orders }) {
-    return (
-        <div className="orders-grid">
-
-            {orders.map(order => {
-                return (
-                    <div key={order.id} className="order-container">
-
-                        <div className="order-header">
+export function OrderHeader({order}) {
+    return(
+         <div className="order-header">
                             <div className="order-header-left-section">
                                 <div className="order-date">
                                     <div className="order-header-label">Order Placed:</div>
@@ -28,12 +20,5 @@ export function OrderGrid({ orders }) {
                                 <div>{order.id}</div>
                             </div>
                         </div>
-
-                        <OrderDetails order={order} />
-                    </div>
-                );
-            })}
-
-        </div>
     );
 };

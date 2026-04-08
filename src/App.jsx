@@ -18,7 +18,6 @@ function App() {
         }
 
         fatchCartData();
-
     }, [])
 
     return (
@@ -27,7 +26,7 @@ function App() {
                 <Route path="/" element={<Navigate to="/home" />}> </Route>
                 <Route path="/home" element={<HomePage cart={cart} />}></Route>
                 <Route path="/checkout" element={<CheckoutPage cart={cart} />}></Route>
-                <Route path="/tracking" element={<TrackingPage />}></Route>
+                <Route path="/tracking/:orderId/:productId" element={<TrackingPage cart={cart} />}></Route>
                 <Route path="/order" element={<OrderPage cart={cart} />}></Route>
 
                 <Route path="*" element={<NotFoundPage />}></Route>

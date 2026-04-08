@@ -21,9 +21,9 @@ export function OrderSummery({ cart, deliveryOptions }) {
                         </div>
 
                         <div className="cart-item-details-grid">
-                           <ProductDetails cartItem={cartItem}/>
+                            <ProductDetails cartItem={cartItem} />
 
-                            <DeliveryOptions deliveryOptions={deliveryOptions} cartItem={cartItem}/>
+                            <DeliveryOptions deliveryOptions={deliveryOptions} cartItem={cartItem} />
 
                         </div>
                     </div>
