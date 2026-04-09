@@ -22,7 +22,6 @@ export function TrackingPage({ cart }) {
 
     fetchData();
   }, [orderId]);
-  console.log(order);
 
 
   if (!order) { return null }
@@ -30,11 +29,22 @@ export function TrackingPage({ cart }) {
     return product.productId === productId;
   })
 
-  const totoalDeliveryTimeMs = product.estimatedDeliveryTimeMs - order.orderTimeMs;
+  const totalDeliveryTimeMs = product.estimatedDeliveryTimeMs - order.orderTimeMs;
 
-  const timePassedMs = dayjs().valueOf - order.orderTimeMs;
+  const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
 
-  const deliveryPercent = (timePassedMs / totoalDeliveryTimeMs) * 100;
+  let deliveryPercent;
+
+  if (totalDeliveryTimeMs <= 0) {
+    deliveryPercent = 100; // already delivered
+  } else {
+    deliveryPercent = Math.min(
+      (timePassedMs / totalDeliveryTimeMs) * 100,
+      100
+    );
+  }
+
+
 
   let isPreparing;
   let isShipped;
