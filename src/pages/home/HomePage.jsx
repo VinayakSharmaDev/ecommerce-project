@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router';
+
 
 import { Header } from '/src/components/Header';
 import { ProductGrid } from './ProductGrid';
@@ -9,15 +11,25 @@ export function HomePage({ cart, loadCart }) {
 
   const [products, setProducts] = useState([]);
 
+
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get('search');
+
   useEffect(() => {
 
     const fatchProductsData = async () => {
-      const response = await axios.get('/api/products')
+      let url = '/api/products';
+
+      if (search) {
+        url = `/api/products?search=${search}`;
+      }
+
+      const response = await axios.get(url);
       setProducts(response.data);
     }
 
     fatchProductsData();
-  }, [])
+  }, [search]);
 
   return (
     <>

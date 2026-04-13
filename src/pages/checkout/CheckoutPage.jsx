@@ -5,32 +5,30 @@ import { OrderSummery } from './components/OrderSummery';
 import { PaymentSummery } from './components/PaymentSummery'
 import './CheckoutPage.css';
 
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
 
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummery, setPaymentSummery] = useState([]);
 
   useEffect(() => {
 
-    const fetchData = async () => {
-      try {
-        const [deliveryRes, paymentSummeryRes] = await Promise.all([
-          axios.get('api/delivery-options?expand=estimatedDeliveryTime'),
-          axios.get("/api/payment-summary")
-        ])
-
-        setDeliveryOptions(deliveryRes.data)
-        setPaymentSummery(paymentSummeryRes.data)
-      }
-      catch (error) {
-        console.error("Error fetch data:", error)
-      }
-
-
+    const fetchOptions = async () => {
+      const response = await axios.get('api/delivery-options?expand=estimatedDeliveryTime');
+      setDeliveryOptions(response.data);
     }
 
-    fetchData();
+    fetchOptions();
   }, []);
+
+
+  useEffect(() => {
+    const fetchPayment = async () => {
+      const response = await axios.get("/api/payment-summary")
+      setPaymentSummery(response.data)
+    }
+
+    fetchPayment();
+  }, [cart]);
 
 
   return (
@@ -46,8 +44,8 @@ export function CheckoutPage({ cart }) {
 
         <div className="checkout-grid">
 
-          <OrderSummery cart={cart} deliveryOptions={deliveryOptions} />
-          <PaymentSummery paymentSummery={paymentSummery} />
+          <OrderSummery cart={cart} deliveryOptions={deliveryOptions} loadCart={loadCart} />
+          <PaymentSummery paymentSummery={paymentSummery} loadCart={loadCart} />
 
         </div>
       </div >

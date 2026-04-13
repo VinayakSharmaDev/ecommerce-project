@@ -14,3 +14,5 @@ export function ProductGrid({ products, loadCart }) {
     </div>
   );
 };
+
+// Shared with HomePage 
