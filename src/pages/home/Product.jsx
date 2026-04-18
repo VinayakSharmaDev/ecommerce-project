@@ -29,7 +29,8 @@ function Product({ product, loadCart }) {
 
 
     return (
-        <div key={product.id} className="product-container">
+        <div key={product.id} className="product-container"
+        data-testid="product-Container">
             <div className="product-image-container">
                 <img className="product-image"
                 data-testid="product-image"
